@@ -11,7 +11,7 @@ module.exports = {
   add,
   remove,
   update,
-  findItems,
+//   findItems,
 };
 
 function find(){
@@ -35,25 +35,28 @@ function findById(id) {
 // }
 
 async function add(item) {
+    console.log("in the add")
   const [id] = await db('items').insert(item);
   return findById(id);
 }
 
 function remove(id) {
+    console.log("in the remove")
   return db('items')
     .where({ id })
     .del();
 }
 
 function update(id, changes) {
+    console.log("in the update")
   return db('items')
     .where({ id })
     .update(changes, '*');
 }
 
-function findItems(userId) { // HELP
-  return db('items as i')
-    .join( 'users as u', 'u.id', 'i.user_id')
-    .select('i.id', 'i.item_name', 'i.quantity', 'i.price', 'i.description', 'u.id as user_id', 'u.username as user_name')
-    .where({ 'i.user_id': userId });
-}
+// function findItems(userId) { // HELP
+//   return db('items as i')
+//     .join( 'users as u', 'u.id', 'i.user_id')
+//     .select('i.id', 'i.item_name', 'i.quantity', 'i.price', 'i.description', 'u.id as user_id', 'u.username as user_name')
+//     .where({ 'i.user_id': userId });
+// }

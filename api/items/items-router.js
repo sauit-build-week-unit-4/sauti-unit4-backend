@@ -67,7 +67,7 @@ Item.findById(req.params.id)
 //   });
   
   router.post('/', (req, res) => {
-
+    console.log("in the items router.post. Log req.body", req.body)
     Item.add(req.body)
       .then(item => {
         res.status(201).json(item);
@@ -81,6 +81,8 @@ Item.findById(req.params.id)
   }); // return the added item object
   
   router.delete('/:id', (req, res) => {
+    console.log("in the items router.delete. Log req.params.id", req.params.id)
+
     Item.remove(req.params.id)
       .then(count => {
         if (count > 0) {
@@ -98,6 +100,9 @@ Item.findById(req.params.id)
   }); // returns delete message
   
   router.put('/:id', (req, res) => {
+    console.log("in the items router.put. Log req.params.id", req.params.id)
+    console.log("in the items router.put. Log req.body", req.body)
+
     const changes = req.body;
     Item.update(req.params.id, changes)
       .then(item => {
