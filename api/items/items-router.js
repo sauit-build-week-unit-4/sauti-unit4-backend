@@ -2,6 +2,34 @@ const router = require("express").Router();
 const Item = require("./items-model.js");
 
 
+module.exports = {
+    find,
+    findById,
+  //   findBy,
+    add,
+    remove,
+    update,
+    findItems,
+  };
+
+
+
+router.get('/', (req, res) => {
+    console.log("in the router.get")
+    Item.find(req.query)
+      .then(items => {
+        // console.log("in the then, log items", items)
+        res.status(200).json(items);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({
+          message: 'Error retrieving the items',
+        });
+      });
+}); // return an array of all items - THIS WORKS
+  
+
 
 router.get('/:id', (req, res) => {
     console.log("in the items router.get by id", req.params.id)
@@ -19,29 +47,8 @@ Item.findById(req.params.id)
         message: 'Error retrieving the item',
     });
     });
-});  // return the item object with the matching id
+});  // return the item object with the matching id (working)
   
-
-
-
-
-router.get('/', (req, res) => {
-    // console.log("in the router.get")
-    Item.find(req.query)
-      .then(items => {
-        // console.log("in the then, log items", items)
-        res.status(200).json(items);
-      })
-      .catch(error => {
-        console.log(error);
-        res.status(500).json({
-          message: 'Error retrieving the items',
-        });
-      });
-  }); // return an array of all items 200
-  
-
-
 //   router.get('/:id/items', (req, res) => {
 //     Item.findItems(req.params.id)
 //       .then(items => {
