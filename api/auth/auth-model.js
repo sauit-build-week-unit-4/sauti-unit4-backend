@@ -13,6 +13,7 @@ function findBy(filter){
 }
 
 function findById(id){
+	console.log("in the model findById", id)
 	return db("users")
 		.select("*")
 		.where({ id })
@@ -20,11 +21,10 @@ function findById(id){
 }
 
 async function add(user){
-	console.log("model add")
-	console.log(user)
+	console.log("in the model add", user)
 	const [id] = await db("users").insert(user).returning("id")
 	console.log(id)
-	return findById(id)
+	return findById(id);
 }
 
 module.exports = {
