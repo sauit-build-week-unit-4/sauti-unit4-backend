@@ -50,18 +50,18 @@
     - testing_database_name (use the real name of the testing database you created in pgAdmin 4)
 */
 const pg = require('pg')
-const parse = require("pg-connection-string").parse;
+//const parse = require("pg-connection-string").parse;
 
 // // Parse the environment variable into an object containing User, Password, Host, Port etc at separate key-value pairs
-const pgconfig = parse(process.env.DATABASE_URL);
+//const pgconfig = parse(process.env.DATABASE_URL);
 
 // // Add SSL setting to default environment variable on a new key-value pair (the value itself is an object)
-pgconfig.ssl = { rejectUnauthorized: false };
+//pgconfig.ssl = { rejectUnauthorized: false };
 
 // if (process.env.DATABASE_URL) {
 //   pg.defaults.ssl = { rejectUnauthorized: false }
 // }
-
+console.log(">>>>>>>>>>>>>>> process.env.DATABASE_URL: ", process.env.DATABASE_URL);
 const sharedConfig = {
   client: 'pg',
   migrations: { directory: './data/migrations' },
@@ -90,7 +90,12 @@ module.exports = {
   },
   production: {
     ...sharedConfig,
-    connection: pgConfig,
+    connection: {
+          connectionString: process.env.DATABASE_URL,
+          ssl: {
+            rejectUnauthorized: false,
+          },
+     },
      pool: { min: 2, max: 10 },
   },
 }
