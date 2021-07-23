@@ -6,14 +6,17 @@ const Auth = require("./auth-model")
 const {JWT_SECRET} = require('./secrets/secrets')
 
 router.post("/register", async (req, res, next) => {
+	console.log("in the users post register", req.body)
 	try {
 		const { username, password, email, isOwner } = req.body
-
+		console.log("in the try")
 		if(!username || !password || !email || !isOwner) {
+			console.log("in the if")
 			return res.status(400).json({
 				message: "username, password, and email, member status required"
 			})
 		} else {
+			console.log("in the else")
 			const  hashpass = await bcrypt.hash(password, 5)
 			const newUser = await Auth.add({
 				username: username,
@@ -25,6 +28,7 @@ router.post("/register", async (req, res, next) => {
 			res.status(201).json(newUser)
 		}
 	} catch (err) {
+		console.log("in the catch")
 		next(err)
 	}
 })

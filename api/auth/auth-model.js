@@ -20,6 +20,7 @@ function findById(id){
 }
 
 async function add(user){
+	console.log("model add")
 	console.log(user)
 	const [id] = await db("users").insert(user).returning("id")
 	console.log(id)
