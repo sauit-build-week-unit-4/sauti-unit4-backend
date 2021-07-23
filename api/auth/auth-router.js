@@ -10,17 +10,13 @@ function isDefined(value) {
 }
 
 router.post("/register", async (req, res, next) => {
-	console.log("in the users post register", req.body)
 	try {
 		const { username, password, email, isOwner } = req.body
-		console.log("in the try")
 		if(!username || !password || !email || !isDefined(isOwner)){
-			console.log("in the if")
 			return res.status(400).json({
 				message: "username, password, and email, member status required"
 			})
 		} else {
-			console.log("in the else")
 			const  hashpass = await bcrypt.hash(password, 5)
 			const newUser = await Auth.add({
 				username: username,
@@ -32,7 +28,6 @@ router.post("/register", async (req, res, next) => {
 			res.status(201).json(newUser)
 		}
 	} catch (err) {
-		console.log("in the catch")
 		next(err)
 	}
 })
@@ -40,16 +35,13 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
 	try {
 		const { username, password } = req.body
-		console.log(req.body)
 		if(!username || !password){
 			return res.status(400).json({
 				message: "username and password required"
 			})
 		}
 		const user = await Auth.findBy({ username }).first()
-		console.log("login",user)
 		const checkPassword = await bcrypt.compare(password,user.password)
-		console.log(checkPassword)
 
 		if (!user){
 			return res.status(401).json({
