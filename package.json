@@ -1,0 +1,48 @@
+{
+  "name": "sauti-unit4-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "migrateh": "heroku run knex migrate:latest -a team-amazing",
+    "rollbackh": "heroku run knex migrate:rollback -a team-amazing",
+    "databaseh": "heroku pg:sql -a team-amazing",
+    "seedh": "heroku run knex seed:run -a team-amazing",
+    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
+    "deploy": "git push heroku main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sauit-build-week-unit-4/sauti-unit4-backend.git"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sauit-build-week-unit-4/sauti-unit4-backend/issues"
+  },
+  "homepage": "https://github.com/sauit-build-week-unit-4/sauti-unit4-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.7",
+    "nodemon": "^2.0.12",
+    "pg": "^8.6.0",
+    "postgres": "^1.0.2",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
