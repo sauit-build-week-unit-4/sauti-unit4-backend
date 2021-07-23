@@ -36,7 +36,7 @@
 //     pool: { min: 2, max: 10 },
 //   },
 // }
-require('dotenv').config()
+//require('dotenv').config()
 /*
   PORT=5000
   NODE_ENV=development
@@ -84,7 +84,7 @@ module.exports = {
   },
   production: {
     ...sharedConfig,
-    connectionString: process.env.DATABASE_URL,
+    connection: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false,
     },
@@ -111,3 +111,17 @@ module.exports = {
 //     directory: "./data/seeds",
 //   },
 // },
+
+// const knex = require("knex");
+// const parse = require("pg-connection-string").parse;
+
+// // Parse the environment variable into an object containing User, Password, Host, Port etc at separate key-value pairs
+// const pgconfig = parse(process.env.DATABASE_URL);
+
+// // Add SSL setting to default environment variable on a new key-value pair (the value itself is an object)
+// pgconfig.ssl = { rejectUnauthorized: false };
+
+// const db = knex({
+//   client: "pg",
+//   connection: pgconfig,
+// });
