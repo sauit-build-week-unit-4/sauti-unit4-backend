@@ -3,6 +3,7 @@ const router = require("express").Router()
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const Auth = require("./auth-model")
+const {JWT_SECRET} = require('./secrets/secrets')
 
 router.post("/register", async (req, res, next) => {
 	try {
@@ -50,7 +51,7 @@ router.post("/login", async (req, res, next) => {
 			const token = jwt.sign({
 				subject: user.id,
 				username: user.username
-			}, process.env.JWT_SECRET, {expiresIn: "1d"})
+			}, JWT_SECRET, {expiresIn: "1d"})
 			
 			res.cookie("token", token)
 
