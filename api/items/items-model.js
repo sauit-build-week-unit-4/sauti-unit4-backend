@@ -35,8 +35,9 @@ function findById(id) {
 // }
 
 async function add(item) {
-    console.log("in the add")
-  const [id] = await db('items').insert(item);
+    console.log("in the add", item)
+//   const [id] = await db('items').insert(item); // TEST BELOW
+  const [id] = await db('items').insert(item).returning('id');
   return findById(id);
 }
 
