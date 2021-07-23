@@ -5,12 +5,16 @@ const bcrypt = require("bcryptjs")
 const Auth = require("./auth-model")
 const {JWT_SECRET} = require('./secrets/secrets')
 
+function isDefined(value) {
+	return value !== null && value !== undefined // will return true if the value is defined
+}
+
 router.post("/register", async (req, res, next) => {
 	console.log("in the users post register", req.body)
 	try {
 		const { username, password, email, isOwner } = req.body
 		console.log("in the try")
-		if(!username || !password || !email || !isOwner) {
+		if(!username || !password || !email || !isDefined(isOwner)){
 			console.log("in the if")
 			return res.status(400).json({
 				message: "username, password, and email, member status required"
