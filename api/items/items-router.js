@@ -2,15 +2,15 @@ const router = require("express").Router();
 const Item = require("./items-model.js");
 
 
-module.exports = {
-    find,
-    findById,
-  //   findBy,
-    add,
-    remove,
-    update,
-    findItems,
-  };
+// module.exports = {
+//     find,
+//     findById,
+//   //   findBy,
+//     add,
+//     remove,
+//     update,
+//     findItems,
+//   };
 
 
 
