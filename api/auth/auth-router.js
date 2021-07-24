@@ -57,8 +57,13 @@ router.post("/login", async (req, res, next) => {
 				username: user.username
 			}, JWT_SECRET, {expiresIn: "1d"})
 			
+<<<<<<< HEAD
 			res.cookie("token", token)
 			console.log("past the cookie")
+=======
+			// res.cookie("token", token)
+
+>>>>>>> 4bb812193754946421913549a4af4bc6d845eadb
 			res.status(200).json({
 				message: `Welcome back ${username}!`,
 				token: token
