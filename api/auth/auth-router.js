@@ -35,7 +35,8 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
 	try {
 		const { username, password } = req.body
-		// const user = req.body
+	
+		const userObject = req.body
 		if(!username || !password){
 			return res.status(400).json({
 				message: "username and password required"
@@ -59,7 +60,7 @@ router.post("/login", async (req, res, next) => {
 			res.status(200).json({
 				message: `Welcome back ${username}!`,
 				token: token
-			})
+			}, userObject)
 		}
 		
 	} catch (err) {
