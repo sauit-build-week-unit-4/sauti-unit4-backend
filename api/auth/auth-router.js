@@ -43,7 +43,7 @@ router.post("/login", async (req, res, next) => {
 			})
 		}
 		const user = await Auth.findBy({ username }).first()
-		const checkPassword = await bcrypt.compare(password,user.password)
+		const checkPassword = await bcrypt.compare(password, user.password)
 
 		if (!user){
 			console.log("in the if")
@@ -64,7 +64,8 @@ router.post("/login", async (req, res, next) => {
 			res.status(200).json({
 				message: `Welcome back ${username}!`,
 				token: token,
-				user: userObject
+				user: userObject,
+				id: user.id,
 			})
 		}
 		
