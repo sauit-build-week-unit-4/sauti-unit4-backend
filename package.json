@@ -13,9 +13,7 @@
     "databaseh": "heroku pg:sql -a sauti-unit4-backend",
     "seedh": "heroku run knex seed:run -a sauti-unit4-backend",
     "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
-    "deploy": "git push heroku main",
-    "tests" : "node server/server.test.js"
-
+    "deploy": "git push heroku main"
   },
   "repository": {
     "type": "git",
