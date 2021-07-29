@@ -12,7 +12,6 @@
     "rollbackh": "heroku run knex migrate:rollback -a sauti-unit4-backend",
     "databaseh": "heroku pg:sql -a sauti-unit4-backend",
     "seedh": "heroku run knex seed:run -a sauti-unit4-backend",
-    "test": "cross-env NODE_ENV=testing jest --watchAll --verbose --runInBand --silent",
     "deploy": "git push heroku main"
   },
   "repository": {
