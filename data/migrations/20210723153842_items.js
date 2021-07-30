@@ -6,6 +6,7 @@ exports.up = function (knex) {
       items.string('location', 255).notNullable();
       items.integer('quantity').unsigned().notNullable();
       items.float('price').notNullable();
+      items.string('image_url').notNullable();
       items.text("description").notNullable();
       items.integer("user_id")
           .unsigned()
