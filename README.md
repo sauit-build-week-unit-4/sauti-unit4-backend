@@ -98,7 +98,65 @@ Item Object
   location: string
   quantity: integer
   price: float
+  image_url: string
   description: string
   user_id: integer // this references the id in the user table
 }
 
+Seeded User Data
+
+username: loki,
+password: password,
+isOwner: true,
+
+username: thor,
+password: password,
+isOwner: true,
+
+username: hulk,
+password: password,
+isOwner: true,
+
+username: captain,
+password: password, 
+isOwner: true,
+
+username: ironman, 
+password: password,
+isOwner: true,
+
+username: blackwidow,
+password: password,
+isOwner: true,
+
+username: storm,
+password: password,
+isOwner: true,
+
+username: scarletwitch,
+password: password,
+isOwner: true,
+
+username: wolverine,
+password: password,
+isOwner: false,
+
+username: jeangrey,
+password: password,
+isOwner: false,
+
+username: jubilee,
+password: password,
+isOwner: false,
+
+username: psylocke,
+password: password,
+isOwner: false,
+
+username: gambit,
+password: password,
+isOwner: false,
+
+username: admin,
+password: password,
+isOwner: true,
