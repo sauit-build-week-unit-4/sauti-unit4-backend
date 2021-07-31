@@ -1,8 +1,8 @@
 # back_end
 
 Backend Developers & Project Management African Market TT groups 2, 3, and 6:
-Tony Miller - Technical Lead
-Rhiannon Stanford - Technical Lead
+  Tony Miller - Technical Lead
+  Rhiannon Stanford - Technical Lead
 
 ## Dependencies
   Knex
