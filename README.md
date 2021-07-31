@@ -1,5 +1,9 @@
 # back_end
 
+Backend Developers & Project Management African Market TT groups 2, 3, and 6:
+Tony Miller - Technical Lead
+Rhiannon Stanford - Technical Lead
+
 ## Dependencies
   Knex
     npm i -g knex
@@ -13,7 +17,7 @@
     brew install postgres
   Express
     npm i -g express
-  sqlIte3
+  sqlite3
     brew install sqlite3
   JSONWEBTOKEN
     npm i -g jsonwebtoken
@@ -46,26 +50,26 @@ heroku run --app <app_name>
 
 ### Endpoints (heroku):
     Users
-    [POST] https://saudi-market-app.herokuapp.com/api/auth/register
+    [POST] https://sauti-market-bw.herokuapp.com/api/auth/register
         returns user object
 
-    [POST] https://saudi-market-app.herokuapp.com/api/auth/login
+    [POST] https://sauti-market-bw.herokuapp.com/api/auth/login
         returns token, user object
 
     Items
-    [GET]   ALL ITEMS: https://saudi-market-app.herokuapp.com/api/items
+    [GET]   ALL ITEMS: https://sauti-market-bw.herokuapp.com/api/items
         returns array of all item objects
 
-    [GET]   ITEMS BY ID: https://saudi-market-app.herokuapp.com/api/items/:id
+    [GET]   ITEMS BY ID: https://sauti-market-bw.herokuapp.com/api/items/:id
         returns item object with matching id
 
-    [POST]  ITEM NEW ITEM: https://saudi-market-app.herokuapp.com/api/items
+    [POST]  ITEM NEW ITEM: https://sauti-market-bw.herokuapp.com/api/items
         returns item object
 
-    [PUT]   UPDATE ITEM: https://saudi-market-app.herokuapp.com/api/items/:id
+    [PUT]   UPDATE ITEM: https://sauti-market-bw.herokuapp.com/api/items/:id
         returns item object
 
-    [DELETE]DELETE ITEM: https://saudi-market-app.herokuapp.com/api/items/:id
+    [DELETE]DELETE ITEM: https://sauti-market-bw.herokuapp.com/api/items/:id
         returns delete message
 
 MY-LIST Endpoints
